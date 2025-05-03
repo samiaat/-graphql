@@ -1,0 +1,106 @@
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Profile</title>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <link rel="stylesheet" href="/-graphql/style1.css">
+ </head>
+ <body class="align">
+   <div class="profilegrid">
+     <div class="profile__header">
+       <!-- <h1>Your Profile</h1> -->
+       <h1 id="welcome">Welcome </h1>
+     </div>
+     <div class="profile__sections">
+       <div class="profile__section">
+        <h2>Your information</h2>
+           <div id="user-info">
+             <h2>Your Details</h2>
+             <h3 id="Username">Username:</h3>
+             <h3 id="email">Email:</h3>
+             <h3 id="firstName">First Name:</h3>
+             <h3 id="lastName">Last Name:</h3>
+           </div>
+       </div>
+       <div class="profile__section">
+         <!-- <h2>Statistics</h2> -->
+         <h2>Audit Ratio</h2>
+         <div id="auditRatio">
+            <!-- <h1><div id="audit-number"></div></h1> -->
+            <svg viewBox="0 0 36 36" class="circle-chart">
+              <path class="circle-bg"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path id="circle" class="circle"
+                stroke-dasharray="0, 100"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="18" y="20.35" class="circle-text">
+                <tspan id="audit-number"></tspan>
+              </text>
+            </svg>
+            
+            <!-- <div id="audit-text" > You can do better!</div> -->
+         </div>
+       </div>
+       <div class="profile__section">
+         <h2>Project PASS / FAIL ratio in all repo's</h2>
+         <svg id="pass-fail-ratio-svg" width="500" height="500"></svg>
+         <!---      <div class="profile__section">--> 
+          <h3>Audit XP</h3>
+          <div id="xp-reci">
+          </div>
+         <!--</div>-->
+
+       </div>
+       <div class="profile__section">
+         <h2>Other Information</h2>
+         <!-- Add your other profile information here -->
+         <h3>Your current level</h3>
+         <div id="progress">
+            <svg viewBox="0 0 36 36" class="circle-chart">
+              <path class="circle-pbg"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path id="progress-circle" class="prog-circle"
+                stroke-dasharray="0, 100"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="18" y="20.35" class="circle-text">
+                <tspan id="level-number"></tspan>
+                <br>
+                <tspan id="levels-left"></tspan>
+              </text>
+            </svg>
+         </div>
+
+         <div id=""></div>
+       </div>
+     </div>
+     <div class="profile__actions">
+       <a href="#" class="profile__action" id="logoutButton">Logout</a>
+     </div>
+   </div>
+ 
+   <script src="/-graphql/fetch-data.js"></script>
+   <script src="/-graphql/logout.js"></script>
+   <script src="/-graphql/auditSVG.js"></script>
+   <script src="/-graphql/passFailSVG.js"></script>
+   <script src="/-graphql/progressSVG.js"></script>
+   <script src="/-graphql/xpGainedSVG.js"></script>
+
+
+ </body>
+ </html>
