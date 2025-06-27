@@ -1,15 +1,17 @@
 function updateXPChart(totalUpBytes, totalDownBytes) {
-    // Convert bytes to kilobytes (KB)
+    
     const totalUpKB = (totalUpBytes / 1000).toFixed(2);
     const totalDownKB = (totalDownBytes / 1000).toFixed(2);
+    console.log('Total Up KB:', totalUpKB);
+    console.log('Total Down KB:', totalDownKB);
 
     const svgWidth = 400;
-    const svgHeight = 200; // Increased height to accommodate the indicator
+    const svgHeight = 200; 
     const barHeight = 40;
-    const maxBarWidth = svgWidth - 100;  // Subtract some padding
+    const maxBarWidth = svgWidth - 100;  
 
-    // Calculate the width of each bar
-    const totalXP = Math.max(totalUpKB, totalDownKB); // Find the maximum to normalize bar widths
+   
+    const totalXP = Math.max(totalUpKB, totalDownKB); 
     const upBarWidth = (totalUpKB / totalXP) * maxBarWidth;
     const downBarWidth = (totalDownKB / totalXP) * maxBarWidth;
 
@@ -33,6 +35,5 @@ function updateXPChart(totalUpBytes, totalDownBytes) {
         </svg>
     `;
 
-    // Inject the SVG into the DOM
     document.getElementById('xp-reci').innerHTML = svg;
 }

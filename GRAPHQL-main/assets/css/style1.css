@@ -179,7 +179,8 @@ body {
 
   .circle {
     fill: none;
-    stroke-width: 1;
+    stroke: #FFD700;
+    stroke-width: 2;
     stroke-linecap: round;
     animation: progress 1s ease-out forwards;
   }

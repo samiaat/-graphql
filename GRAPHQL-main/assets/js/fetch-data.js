@@ -9,6 +9,7 @@ async function fetchData() {
 
     try {
         const response = await fetch('https://learn.zone01oujda.ma/api/graphql-engine/v1/graphql', {
+            
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,13 +30,6 @@ async function fetchData() {
     xps {
       path: amount
     }
-    progressesByPath {
-      succeeded
-      count
-      object {
-        attrs
-      }
-    }
     transactions(
       where: { type: { _eq: "level" } }
       order_by: { amount: desc }
@@ -48,13 +42,11 @@ async function fetchData() {
     attrs
   }
 }
-
                 `,
             }),
         });
 
         const data = await response.json();
-        console.log('GraphQL response data:', data);
 
         if (response.ok && !data.errors) {
             const userData = data.data.user[0];
@@ -67,9 +59,6 @@ async function fetchData() {
 
                 const profileDataElement = document.getElementById('user-info');
                 const profileheader = document.getElementById('welcome');
-                const auditRatioElement = document.getElementById('auditRatio');
-                const progressElement = document.getElementById('progress');
-
                 profileheader.innerHTML = `<h2>Welcome, ${userData.login} !</h2>`;
                 profileDataElement.innerHTML = `
                     <div class="profile-info">
@@ -82,7 +71,6 @@ async function fetchData() {
                 const totalUp = userData.totalUp || 0;
                 const totalDown = userData.totalDown || 0;
 
-                console.log('Level:', level);
                 updateAuditRatio(roundedAuditRatio);
                 updateProgress(level);
                 updateXPChart(totalUp, totalDown);
@@ -98,6 +86,4 @@ async function fetchData() {
     }
 }
 
-
-// Call fetchData function when the profile page loads
 fetchData();

@@ -33,14 +33,7 @@ async function fetchAndDrawPassFailRatio() {
 
     const result = await response.json();
 
-    if (!result?.data?.user?.[0]?.progressesByPath) {
-      console.error('No progressesByPath data', result);
-      return;
-    }
-
     const progresses = result.data.user[0].progressesByPath;
-
-    // Filtrer uniquement les projets
     const projects = progresses.filter(p => p.object.type === "project");
 
     let passCount = 0;
@@ -94,9 +87,8 @@ function updateFailPassRatio(passCount, failCount) {
   svg.appendChild(background);
 
   const total = passCount + failCount;
-  console.log('Total projects:', total);
   const passPercentage = total > 0 ? passCount / total : 0;
-  console.log('Pass percentage:', passPercentage);
+ 
 
   // Cercle gris de fond
   const baseCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
@@ -174,5 +166,4 @@ function updateFailPassRatio(passCount, failCount) {
   svg.appendChild(legend);
 }
 
-// Appel automatique
 fetchAndDrawPassFailRatio();
