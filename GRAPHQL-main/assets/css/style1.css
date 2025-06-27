@@ -242,3 +242,18 @@ body {
 	  from{box-shadow: inset -3px 0px 0px #888;}
 	  to{box-shadow: inset -3px 0px 0px transparent;}
 }
+@media (max-width: 768px) {
+  .profilegrid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile__header,
+  .profile__sections,
+  .profile__actions {
+    grid-column: span 1; /* Au lieu de span 3 */
+  }
+
+  .profile__sections {
+    grid-template-columns: 1fr;
+  }
+}
