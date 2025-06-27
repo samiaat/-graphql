@@ -2,6 +2,7 @@ async function fetchAndDrawPassFailRatio() {
   const token = localStorage.getItem('token');
   if (!token) {
     alert('Token not found. Please log in.');
+    window.location.href = '../html/index.html'; 
     return;
   }
 

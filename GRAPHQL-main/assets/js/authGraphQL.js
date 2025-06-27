@@ -5,7 +5,7 @@ export async function getData(username, password) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${btoa(username + ":" + password)}`
+            Authorization: `Basic ${btoa(username + ":" + password)}`
         },
     });
 
