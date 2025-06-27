@@ -1,4 +1,4 @@
-import { getData } from "/-graphql/authGraphQL.js";
+import { getData } from "../js/authGraphQL.js";
 
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -10,13 +10,12 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         localStorage.setItem('token', token);
 
         // Redirect to another page (e.g., profile page)
-        window.location.href = '/-graphql/profile.html';
-        alert('Login successful!');
+        window.location.href = '../html/profile.html';
         // Redirect to another page or perform additional actions
     } catch (error) {
 
         // Redirect to the same page (login page)
-        // window.location.href = '/login.html';
+        window.location.href = '/login.html';
         console.error('Login failed: ' + error);
     }
 });

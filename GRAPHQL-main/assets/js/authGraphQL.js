@@ -11,8 +11,8 @@ export async function getData(username, password) {
     const errorData = await response.json();
     if (!response.ok) {
         showError(errorData.message || 'Login failed: wrong username or password.');
-        //console.error('error:', errorData.message);
-        //throw new Error("Wrong credentials");
+        console.error('error:', errorData.message);
+        throw new Error("Wrong credentials");
     }
 
     //console.log('Login response:', errorData);
